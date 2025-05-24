@@ -10,7 +10,7 @@ name: 'Execucao Agendada'
 #regras de disparo (gatilhos/triggers) - gatilho de exec manual = workflow_dispatch
 on:
   schedule:
-    # Executa o workflow a cada segunda-feira às 6h00 UTC
+    # Executa o workflow toda segunda-feira às 6h00 UTC
     - cron: '0 6 * * 1'
 
 #trabalhos/tarefas dentro do pipeline (jobs) - cada trabalho é um conjunto de etapas a serem executadas
