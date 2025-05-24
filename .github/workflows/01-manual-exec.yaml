@@ -44,4 +44,4 @@ jobs:
 
      # Passo 6: Executar os testes E2E
       - name: Run E2E tests
-        run: yarn test:e2e   
+        run: yarn run e2e   
