@@ -2,6 +2,8 @@
 
 # Este arquivo é um exemplo de um workflow do GitHub Actions que é acionado de forma agendada.
 # O workflow é definido em YAML e contém várias etapas que serão executadas quando o workflow for acionado.
+# O workflow é dividido em várias etapas, cada uma com um nome e uma série de comandos a serem executados.
+# O workflow é acionado manualmente através do botão "Run workflow" na interface do GitHub.
 
 name: 'Execucao Agendada'
 
@@ -9,7 +11,7 @@ name: 'Execucao Agendada'
 on:
   schedule:
     # Executa o workflow a cada segunda-feira às 6h00 UTC
-    - cron: '*0 6 * * 1'
+    - cron: '0 6 * * 1'
 
 #trabalhos/tarefas dentro do pipeline (jobs) - cada trabalho é um conjunto de etapas a serem executadas
 jobs:
