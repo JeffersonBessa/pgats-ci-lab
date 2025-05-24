@@ -1,0 +1,47 @@
+# CI de nivel 02 - Disparo agendado
+
+# Este arquivo é um exemplo de um workflow do GitHub Actions que é acionado de forma agendada.
+# O workflow é definido em YAML e contém várias etapas que serão executadas quando o workflow for acionado.
+
+name: 'Execucao Agendada'
+
+#regras de disparo (gatilhos/triggers) - gatilho de exec manual = workflow_dispatch
+on:
+  schedule:
+    # Executa o workflow a cada segunda-feira às 6h00 UTC
+    - cron: '*0 6 * * 1'
+
+#trabalhos/tarefas dentro do pipeline (jobs) - cada trabalho é um conjunto de etapas a serem executadas
+jobs:
+  e2e-tests:
+    # Definindo o ambiente de execução onde o job irá executar 
+    # Neste caso, estamos usando a imagem do Ubuntu mais recente disponível no GitHub Actions
+    runs-on: ubuntu-latest
+
+    # Definindo os passos a serem executados dentro do trabalho
+    steps:
+      # Passo 1: Verificar o código-fonte do repositório
+      - name: Check out code
+        uses: actions/checkout@v4
+
+     # Passo 2: Instalacao node.js
+      - name: install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+     # Passo 3: Instalacao Yarn
+      - name: install Yarn
+        run: npm install -g yarn
+ 
+     # Passo 4: Instalacao Dependências
+      - name: Install dependencies
+        run: yarn
+
+     # Passo 5: Instalacao Playwright
+      - name: Install Playwright
+        run: yarn playwright install
+
+     # Passo 6: Executar os testes E2E
+      - name: Run E2E tests
+        run: yarn run e2e   
