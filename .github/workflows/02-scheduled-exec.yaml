@@ -7,7 +7,7 @@
 
 name: 'Execucao Agendada'
 
-#regras de disparo (gatilhos/triggers) - gatilho de exec manual = workflow_dispatch
+#regras de disparo (gatilhos/triggers) - gatilho de exec agendada
 on:
   schedule:
     # Executa o workflow toda segunda-feira às 6h00 UTC
