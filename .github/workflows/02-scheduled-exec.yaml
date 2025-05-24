@@ -10,10 +10,8 @@ name: 'Execucao Agendada'
 #regras de disparo (gatilhos/triggers) - gatilho de exec agendada
 on:
   schedule:
-    # Executa o workflow toda segunda-feira às 6h00 UTC
     - cron: '0 6 * * 1'
-
-#trabalhos/tarefas dentro do pipeline (jobs) - cada trabalho é um conjunto de etapas a serem executadas
+    
 jobs:
   e2e-tests:
     # Definindo o ambiente de execução onde o job irá executar 
