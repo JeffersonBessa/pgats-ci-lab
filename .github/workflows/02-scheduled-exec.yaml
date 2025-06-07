@@ -7,7 +7,7 @@ name: 'Execucao Agendada'
 on:
   schedule:
     - cron: '0 6 * * 1'
-    
+
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
 
       - name: install Yarn
         run: npm install -g yarn
- 
+
       - name: Install dependencies
         run: yarn
 
@@ -31,4 +31,4 @@ jobs:
         run: yarn playwright install
 
       - name: Run E2E tests
-        run: yarn run e2e   
+        run: yarn run e2e

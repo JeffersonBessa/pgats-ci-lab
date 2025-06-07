@@ -14,7 +14,7 @@ on:
 # trabalhos/tarefas dentro do pipeline (jobs) - cada trabalho é um conjunto de etapas a serem executadas
 jobs:
   e2e-tests:
-    # Definindo o ambiente de execução onde o job irá executar 
+    # Definindo o ambiente de execução onde o job irá executar
     # Neste caso, estamos usando a imagem do Ubuntu mais recente disponível no GitHub Actions
     runs-on: ubuntu-latest
 
@@ -46,7 +46,7 @@ jobs:
 
       # Passo 6: Executar os testes E2E
       - name: Run E2E tests
-        run: yarn run e2e   
+        run: yarn run e2e
 
       # Passo 7: Upload do relatório do Playwright
       - uses: actions/upload-artifact@v4
