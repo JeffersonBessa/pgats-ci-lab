@@ -18,6 +18,8 @@ jobs:
     # Neste caso, estamos usando a imagem do Ubuntu mais recente disponível no GitHub Actions
     runs-on: ubuntu-latest
 
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     # Definindo os passos a serem executados dentro do trabalho
     steps:
       # Passo 1: Verificar o código-fonte do repositório
@@ -45,3 +47,8 @@ jobs:
      # Passo 6: Executar os testes E2E
       - name: Run E2E tests
         run: yarn run e2e   
+
+      - actions/upload-artifact@v4
+        with:
+          name: relatorio
+          path: ./playwright-report
